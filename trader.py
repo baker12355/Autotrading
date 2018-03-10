@@ -26,10 +26,10 @@ if __name__ == '__main__':
     traning_data.columns = columns       #setting columns
     
     close = traning_data['close']
-    period=30                          #Average daily line in 2 days
+    period=2                          #Average daily line in 2 days
     sma= close.rolling(period).mean()
     close.plot(linewidth=1)
-    sma.plot()
+    #sma.plot()
     
     rising=close>=sma                                   #close > sma ,then market is tending to rising
     falling=close<sma                                   #close < sma ,then market is tending to falling
