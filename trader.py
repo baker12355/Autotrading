@@ -26,7 +26,7 @@ if __name__ == '__main__':
     traning_data.columns = columns       #setting columns
     
     close = traning_data['close']
-    period=30                          #Average daily line of 30days
+    period=30                          #Average daily line in 2 days
     sma= close.rolling(period).mean()
     close.plot(linewidth=1)
     sma.plot()
