@@ -28,6 +28,7 @@ Run:
 
 >故大盤趨勢可表示為:
 
+
         if new_close>=average: #大盤大於均線
             rising
         else:
