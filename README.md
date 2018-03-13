@@ -1,6 +1,6 @@
 # HW1
 
-Jupyter url:https://nbviewer.jupyter.org/github/baker12355/HW1/blob/master/HW1.ipynb#
+Jupyter url:https://nbviewer.jupyter.org/github/baker12355/HW1/blob/master/trader.ipynb
 
 Run:
 
