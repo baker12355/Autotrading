@@ -21,7 +21,7 @@ if __name__ == '__main__':
     
     import pandas as pd
     
-    traning_data = pd.read_csv(args.training, delim_whitespace=False, header=None)
+    traning_data = pd.read_csv(args.testing, delim_whitespace=False, header=None)
     columns=['open','high','low','close']
     traning_data.columns = columns       #setting columns
     close = traning_data['close']
@@ -46,17 +46,16 @@ if __name__ == '__main__':
     act=pd.Series([0]*(len(trend)+1))     #act is the action we take next day.
 
     temp=0
-    for i in range(period,len(trend)):
-        
-        if (temp+trend[i]<=1)&(temp+trend[i]>=-1):
-            if (trend[i]==-1):
-                act[i+1]=-1
+    for i in range(period,len(trend)):  
+        if (temp+trend[i-1]<=1)&(temp+trend[i-1]>=-1):
+            if (trend[i-1]==-1):
+                act[i]=-1
             else:
-                act[i+1]=1
-            temp+=trend[i]
+                act[i]=1
+            temp+=trend[i-1]
             
     act.drop([0],inplace=True)
-    act.drop([len(trend)-1],inplace=True)
+    act.drop([len(trend)],inplace=True)
     act.to_csv(args.output, sep=',', encoding='utf-8',index=False)
 
     
